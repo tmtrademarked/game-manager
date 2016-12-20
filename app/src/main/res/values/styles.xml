@@ -1,0 +1,38 @@
+<resources>
+
+    <!-- Base GM application theme. -->
+    <style name="GameManagerTheme" parent="Theme.AppCompat">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="actionBarTheme">@style/GameManagerTheme.AppBarOverlay</item>
+
+        <item name="android:textColor">@color/default_text_color</item>
+
+        <!-- Material transitions -->
+        <item name="android:windowActivityTransitions">true</item>
+    </style>
+
+    <!-- GM theme with no action bar. -->
+    <style name="GameManagerTheme.NoActionBar" parent="GameManagerTheme">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <!-- GM theme with a translucent status bar and action bar -->
+    <style name="GameManagerTheme.Translucent" parent="GameManagerTheme">
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <item name="colorPrimary">@android:color/transparent</item>
+        <item name="actionBarTheme">@style/GameManagerTheme.AppBarOverlay.Translucent</item>
+    </style>
+
+    <style name="GameManagerTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.ActionBar"/>
+
+    <style name="GameManagerTheme.AppBarOverlay.Translucent" parent="GameManagerTheme.AppBarOverlay">
+        <item name="colorControlNormal">@android:color/white</item>
+    </style>
+
+    <style name="GameManagerTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
+
+</resources>

@@ -1,0 +1,118 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:2.2.3'
+        classpath 'io.realm:realm-gradle-plugin:2.2.1'
+
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+        classpath 'com.google.gms:google-services:3.0.0'
+    }
+}
+
+allprojects {
+    repositories {
+        jcenter()
+    }
+}
+
+ext {
+    // Compilation options
+    buildToolsVersion = '25.0.0'
+    compileSdkVersion = 25
+    targetSdkVersion = 25
+    sourceCompatibilityVersion = JavaVersion.VERSION_1_7
+    targetCompatibilityVersion = JavaVersion.VERSION_1_7
+
+    // Dependency versions
+    BUTTERKNIFE_VERSION = '8.4.0'
+    ESPRESSO_VERSION = '2.2.2'
+    FIREBASE_VERSION = '10.0.1'
+    MOCKITO_VERSION = '2.1.0'
+    RETROFIT_VERSION = '2.1.0'
+    ROBOLECTRIC_VERSION = '3.1.2'
+    SUPPORT_VERSION = '25.0.0'
+    SUPPORT_TEST_VERSION = '0.5'
+}
+
+ext.deps = [
+        appcompat         : "com.android.support:appcompat-v7:${SUPPORT_VERSION}",
+        assert            : 'org.assertj:assertj-core:1.7.1',
+        butterknife       : "com.jakewharton:butterknife:${BUTTERKNIFE_VERSION}",
+        butterknifeapt    : "com.jakewharton:butterknife-compiler:${BUTTERKNIFE_VERSION}",
+        cardview          : "com.android.support:cardview-v7:${SUPPORT_VERSION}",
+        design            : "com.android.support:design:${SUPPORT_VERSION}",
+        dexmaker          : 'com.linkedin.dexmaker:dexmaker-mockito:2.2.0',
+        espresso          : "com.android.support.test.espresso:espresso-core:${ESPRESSO_VERSION}",
+        espressointents   : "com.android.support.test.espresso:espresso-intents:${ESPRESSO_VERSION}",
+        firebaseads       : "com.google.firebase:firebase-ads:${FIREBASE_VERSION}",
+        junit             : 'junit:junit:4.12',
+        mockito           : "org.mockito:mockito-core:${MOCKITO_VERSION}",
+        openglapi         : 'org.khronos:opengl-api:gl1.1-android-2.1_r1',
+        robolectric       : "org.robolectric:robolectric:${ROBOLECTRIC_VERSION}",
+        robolectricsupport: "org.robolectric:shadows-support-v4:${ROBOLECTRIC_VERSION}",
+        rxjava            : 'io.reactivex:rxjava:1.1.0',
+        supportannotations: "com.android.support:support-annotations:${SUPPORT_VERSION}",
+        testrules         : "com.android.support.test:rules:${SUPPORT_TEST_VERSION}",
+        testrunner        : "com.android.support.test:runner:${SUPPORT_TEST_VERSION}",
+        timber            : 'com.jakewharton.timber:timber:4.3.1',
+]
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
+
+def readVersion = { ->
+    def versionPropsFile = file('./version.properties')
+    def Properties versionProps = new Properties()
+    versionProps.load(new FileInputStream(versionPropsFile))
+
+    // Find the sha of the last commit to the version file on the current branch.
+    def current = "git rev-parse --abbrev-ref HEAD".execute()
+    def shaCmd = "git rev-list " + current.text.trim() + " --max-count=1 version.properties"
+    def versionSha = shaCmd.execute()
+
+    // Now count the number of commits from that change. That's how many builds have been run
+    // since we last updated the version.
+    def buildCmd = "git rev-list " + versionSha.text.trim() + "..HEAD --count"
+    def buildNum = buildCmd.execute().text.trim()
+    assert buildNum.toInteger() < 1000: "Can only handle 3 digits for builds"
+
+    // Set the build number and return the properties.
+    //versionProps['build'] = buildNum
+    // HACK REMOVE:
+    versionProps['build'] = 2
+    return versionProps
+}
+
+def getBaseVersionCode = { ->
+    def versionInfo = readVersion()
+    def major = versionInfo['major'].toInteger()
+    def minor = versionInfo['minor'].toInteger()
+    def build = versionInfo['build'].toInteger()
+    return (major * 10000) + (minor * 1000) + build
+}
+
+def getBaseVersionName = { ->
+    def versionInfo = readVersion()
+    def major = versionInfo['major']
+    def minor = versionInfo['minor']
+    def build = versionInfo['build']
+    return major + "." + minor + "." + build
+}
+
+ext.getVersionCode = { ->
+    // Add inflation constants if needed
+    return getBaseVersionCode()
+}
+
+ext.getVersionName = { String suffix ->
+    if (suffix == null) {
+        return getBaseVersionName()
+    }
+    return getBaseVersionName() + suffix
+}

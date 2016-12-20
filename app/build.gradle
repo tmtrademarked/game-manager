@@ -1,0 +1,60 @@
+apply plugin: 'com.android.application'
+apply plugin: 'realm-android'
+apply from: '../build.gradle'
+apply from: '../signing.gradle'
+
+android {
+    dataBinding {
+        enabled = true
+    }
+
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
+
+    defaultConfig {
+        applicationId "com.trademarked.gamemanager"
+        minSdkVersion 22
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode rootProject.ext.getVersionCode()
+        versionName rootProject.ext.getVersionName()
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'),
+                    'proguard-rules.pro'
+            zipAlignEnabled true
+            signingConfig signingConfigs.release
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile deps.appcompat
+    compile deps.cardview
+    compile deps.design
+    compile deps.firebaseads
+    compile deps.timber
+
+    // Apply ButterKnife code generation
+    compile deps.butterknife
+    annotationProcessor deps.butterknifeapt
+
+    // Unit test only dependencies
+    testCompile deps.junit
+    testCompile deps.openglapi
+    testCompile deps.robolectric
+    testCompile deps.robolectricsupport
+    testCompile(deps.rxjava) {
+        exclude group: 'com.squareup.okhttp'
+    }
+
+    // Instrumentation test dependencies
+    androidTestCompile(deps.espresso, {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+}
+
+apply plugin: 'com.google.gms.google-services'

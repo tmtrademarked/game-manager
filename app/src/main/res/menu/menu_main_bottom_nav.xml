@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/nav_all"
+        android:icon="@drawable/ic_nav_all_games"
+        android:title="@string/nav_all" />
+    <item
+        android:id="@+id/nav_recently_installed"
+        android:icon="@drawable/ic_nav_recently_installed"
+        android:title="@string/nav_recently_installed" />
+    <item
+        android:id="@+id/nav_recently_played"
+        android:icon="@drawable/ic_nav_recently_played"
+        android:title="@string/nav_recently_played" />
+
+</menu>

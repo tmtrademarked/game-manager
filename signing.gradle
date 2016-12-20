@@ -1,0 +1,10 @@
+android {
+    signingConfigs {
+        release {
+            storeFile file("../trademarked.jks")
+            storePassword System.getenv("TRADEMARK_KEYSTORE_PASSWORD")
+            keyAlias "TrademarkGameManager"
+            keyPassword System.getenv("GM_KEYSTORE_PASSWORD")
+        }
+    }
+}

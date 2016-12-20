@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="game"
+            type="com.trademarked.gamemanager.models.GameRecord"/>
+
+        <variable
+            name="adapter"
+            type="com.trademarked.gamemanager.ui.GameCardAdapter"/>
+    </data>
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/card_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="@dimen/card_margin"
+        android:elevation="@dimen/cardview_default_elevation"
+        android:onClick="@{() -> adapter.launchGame(game)}"
+        card_view:cardCornerRadius="@dimen/card_corner_radius">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/game_icon"
+                android:layout_width="@dimen/game_icon_size"
+                android:layout_height="@dimen/game_icon_size"
+                android:layout_gravity="center"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:scaleType="fitXY"
+                app:gameIcon="@{game}"/>
+
+            <TextView
+                android:id="@+id/display_name"
+                android:layout_width="@dimen/game_icon_size"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/game_icon"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:maxLines="1"
+                android:padding="@dimen/game_name_padding"
+                android:text="@{game.display_name}"
+                android:textAppearance="@android:style/TextAppearance.Small"/>
+
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+</layout>

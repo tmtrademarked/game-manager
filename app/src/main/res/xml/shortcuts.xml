@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shortcuts xmlns:android="http://schemas.android.com/apk/res/android">
+    <shortcut
+        android:enabled="true"
+        android:icon="@drawable/ic_nav_all_games"
+        android:shortcutId="com.trademarked.gamemanager.shortcut.ACTION_ALL_GAMES"
+        android:shortcutLongLabel="@string/shortcut_all_games_long_label"
+        android:shortcutShortLabel="@string/shortcut_all_games_short_label">
+        <intent android:action="com.trademarked.gamemanager.shortcut.ACTION_ALL_GAMES"/>
+    </shortcut>
+    <shortcut
+        android:enabled="true"
+        android:icon="@drawable/ic_nav_recently_installed"
+        android:shortcutId="com.trademarked.gamemanager.shortcut.ACTION_RECENTLY_INSTALLED"
+        android:shortcutLongLabel="@string/shortcut_recently_installed_long_label"
+        android:shortcutShortLabel="@string/shortcut_recently_installed_short_label">
+        <intent android:action="com.trademarked.gamemanager.shortcut.ACTION_RECENTLY_INSTALLED"/>
+    </shortcut>
+    <shortcut
+        android:enabled="true"
+        android:icon="@drawable/ic_nav_recently_played"
+        android:shortcutId="com.trademarked.gamemanager.shortcut.ACTION_RECENTLY_PLAYED"
+        android:shortcutLongLabel="@string/shortcut_recently_played_long_label"
+        android:shortcutShortLabel="@string/shortcut_recently_played_short_label">
+        <intent android:action="com.trademarked.gamemanager.shortcut.ACTION_RECENTLY_PLAYED"/>
+    </shortcut>
+</shortcuts>

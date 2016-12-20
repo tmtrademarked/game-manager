@@ -1,0 +1,63 @@
+{
+  "project_info": {
+    "project_number": "1031229459728",
+    "firebase_url": "https://game-manager-5d518.firebaseio.com",
+    "project_id": "game-manager-5d518",
+    "storage_bucket": "game-manager-5d518.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1031229459728:android:fdb35eecf9bbb0ab",
+        "android_client_info": {
+          "package_name": "com.trademarked.gamemanager"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1031229459728-6jd4mim2pjs6b03me846ta00j2kfrmfu.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.trademarked.gamemanager",
+            "certificate_hash": "207D13E8E19C196B2DC4B12B955C414799447066"
+          }
+        },
+        {
+          "client_id": "1031229459728-gc5gbno5ls6s7lmgc5nb3b835jc2isl8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.trademarked.gamemanager",
+            "certificate_hash": "FAA111E42DDD89CBF5A1A5A4123C2A493419DCD8"
+          }
+        },
+        {
+          "client_id": "1031229459728-3v795k43uehu2c7i1o2s5a3e380e18mv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDtQvn_bzxKTK0fSF6a43rxWxbBagWeODI"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1031229459728-3v795k43uehu2c7i1o2s5a3e380e18mv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

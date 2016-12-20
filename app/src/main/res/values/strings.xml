@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">My Games</string>
+
+    <!-- Bottom Nav strings -->
+    <string name="nav_all">All Games</string>
+    <string name="nav_recently_installed">Recently Installed</string>
+    <string name="nav_recently_played">Recently Played</string>
+
+    <!-- Dialog strings -->
+    <string name="msg_grant_stats_permission">To update the recently played time, this app needs access to the Package Usage Stats on your phone.</string>
+    <string name="msg_no_thanks">No thanks</string>
+    <string name="msg_allow">Allow</string>
+
+    <!-- Shortcut messages -->
+    <string name="shortcut_all_games_short_label">All Games</string>
+    <string name="shortcut_all_games_long_label">View all games on device, sorted alphabetically</string>
+    <string name="shortcut_recently_installed_short_label">Recently Installed</string>
+    <string name="shortcut_recently_installed_long_label">View all games on device, sorted by installation time</string>
+    <string name="shortcut_recently_played_short_label">Recently Played</string>
+    <string name="shortcut_recently_played_long_label">View all games on device, sorted by play time</string>
+
+    <!-- AdMob unit IDs -->
+    <string name="banner_ad_unit_id" translatable="false">ca-app-pub-9940895652768614/9912929889</string>
+</resources>
