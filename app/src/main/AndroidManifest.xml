@@ -16,13 +16,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/GameManagerTheme">
-        <activity android:name=".ui.MainActivity">
+        <activity android:name=".ui.MainActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <intent-filter>
                 <action android:name="com.trademarked.gamemanager.shortcut.ACTION_ALL_GAMES" />
                 <action android:name="com.trademarked.gamemanager.shortcut.ACTION_RECENTLY_INSTALLED" />
                 <action android:name="com.trademarked.gamemanager.shortcut.ACTION_RECENTLY_PLAYED" />
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
             <meta-data
                 android:name="android.app.shortcuts"
