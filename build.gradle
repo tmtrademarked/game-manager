@@ -71,7 +71,7 @@ def readVersion = { ->
     def Properties versionProps = new Properties()
     versionProps.load(new FileInputStream(versionPropsFile))
 
-    // Find the sha of the last commit to the version file on the current branch.
+    // Find the SHA of the last commit to the version file on the current branch.
     def current = "git rev-parse --abbrev-ref HEAD".execute()
     def shaCmd = "git rev-list " + current.text.trim() + " --max-count=1 version.properties"
     def versionSha = shaCmd.execute()
