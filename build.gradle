@@ -83,9 +83,7 @@ def readVersion = { ->
     assert buildNum.toInteger() < 1000: "Can only handle 3 digits for builds"
 
     // Set the build number and return the properties.
-    //versionProps['build'] = buildNum
-    // HACK REMOVE:
-    versionProps['build'] = 2
+    versionProps['build'] = buildNum
     return versionProps
 }
 
