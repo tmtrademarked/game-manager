@@ -1,0 +1,4 @@
+<resources>
+    <item name="card_menu_launch_game" type="id"/>
+    <item name="card_menu_app_info" type="id" />
+</resources>

@@ -19,6 +19,10 @@
     <string name="shortcut_recently_played_short_label">Recently Played</string>
     <string name="shortcut_recently_played_long_label">View all games on device, sorted by play time</string>
 
+    <!-- Menu strings -->
+    <string name="card_menu_launch_game">Launch game</string>
+    <string name="card_menu_app_info">App info</string>
+
     <!-- AdMob unit IDs -->
     <string name="banner_ad_unit_id" translatable="false">ca-app-pub-9940895652768614/9912929889</string>
 </resources>

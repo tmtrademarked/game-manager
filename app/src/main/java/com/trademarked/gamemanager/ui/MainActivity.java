@@ -15,6 +15,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
@@ -53,7 +54,10 @@ public class MainActivity extends AppCompatActivity implements
         // Initialize the bottom nav properly.
         int tabIdToSelect = initCurrentTabId(savedInstanceState);
         mBottomNav.setOnNavigationItemSelectedListener(this);
-        mBottomNav.findViewById(tabIdToSelect).performClick();
+        View tabView = mBottomNav.findViewById(tabIdToSelect);
+        if (tabView != null) {
+            tabView.performClick();
+        }
 
         // Load up the ad if we can.
         AdRequest adRequest = new AdRequest.Builder().build();
